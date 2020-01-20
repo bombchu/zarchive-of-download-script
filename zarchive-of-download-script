@@ -1,0 +1,10 @@
+#!/bin/bash
+datevao="$(date +%Y-%m-%d)"
+weekvao="$(date +%Y-week-%V)"
+mkdir /home/andy/easy-backup-home-structure/z-archive-of-download/$weekvao
+mv -nt /home/andy/easy-backup-home-structure/z-archive-of-download/$weekvao /home/andy/Downloads/*.*
+echo "Transfer completed on $datevao." > /home/andy/easy-backup-home-structure/z-archive-of-download/$weekvao/00archive-info.txt
+touch /home/andy/easy-backup-home-structure/z-archive-of-download/$weekvao/01_date_$datevao
+chmod 444 /home/andy/easy-backup-home-structure/z-archive-of-download/$weekvao/*.*
+chmod a-w,go-x /home/andy/easy-backup-home-structure/z-archive-of-download/$weekvao
+chown andy.andy /home/andy/easy-backup-home-structure/z-archive-of-download/$weekvao
